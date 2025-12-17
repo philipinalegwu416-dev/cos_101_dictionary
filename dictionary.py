@@ -1,24 +1,8 @@
 words = {
-        "Hello":"szia",
-        "Thankyou":"Köszönöm",
-        "yes":"Igen",
-        "No":"Nem",
-        "Please":"Kèrem",
-        "book":"Könyv",
-        "water":"Vìz",
-        "bread":"Kenyèr",
-        "house":"Ház",
-        "person":"Ember",
-        "friend":"Barát",
-        "love":"Szeretet",
-        "time":"Idö",
-        "day":"Nap",
-        "night":"Éjszaka",
-        "work":"Munka",
-        "money":"Pénz",
-        "school":"Iskola",
-        "good":"Jó",
-        "beautiful":"Szép",
+      "dog": "kare", "cat": "mushika", "car": "mota", "bicycle": "keke", "chair": "kujira", "table": "tebur", "pen": "alƙalami", "paper": "takarda",
+"household": "gidan", "market": "kasuwa", "shop": "shago", "river": "kogi", "mountain": "dutse", "rain": "ruwa", "fire": "wuta", "earth": "ƙasa",
+"child": "yaro", "woman": "mace", "man": "namiji", "music": "kiɗa", "dance": "raye-raye", "laugh": "murna", "cry": " kuka", "light": "haske"
+
         }
 print("Translate Words form English to Hungarian")
 print("choose a word to be translated from the Available words")
