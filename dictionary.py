@@ -38,5 +38,5 @@ while True:
         print(f"'{word}' means '{words[word]}'")
         break
     else:
-        print(f"Sorry, '{word}' is not in the dictionary. Try again.")
+        print(f"Sorry, '{word}' is not in the dictionary.")
         break
