@@ -1,73 +1,56 @@
 import streamlit as st
 
-choice = st.selectbox("language",("Hausa", "Yoruba", "Zulu", "Igbo", "Igala"))
+st.title("African Language Dictionary")
+
+
+choice = st.selectbox("Select Language", ("Hausa", "Yoruba", "Zulu", "Igbo", "Igala"))
+
 
 hausa = {
-    "house": "gida", "water": "ruwa", "food": "abinci", "book": "littafi",
-    "school": "makaranta", "sun": "rana", "moon": "wata", "star": "tawo",
-    "boy": "yaro", "girl": "yarinya", "father": "uba", "mother": "uwa",
-    "friend": "aboki", "work": "aiki", "road": "hanya", "go": "tafi",
-    "come": "zo", "sleep": "bari", "name": "suna", "tree": "itace"
-}
-
-igala = {
-    "hello": "Aneje", "thank you": "Ameyo", "water": "Ama", "food": "Uja",
-    "mother": "Nne", "father": "Apa", "house": "Uno", "book": "Ekpulu",
-    "school": "Uno ekpulu", "child": "Omo", "sun": "Ogene", "moon": "Ogida",
-    "star": "Ukwu", "love": "Ifunanya", "god": "Ojo", "friend": "Oyi",
-    "name": "Izina", "market": "Uloja"
+    "hello": "sannu", "water": "ruwa", "food": "abinci", "house": "gida",
+    "mother": "uwa", "father": "uba", "friend": "aboki", "name": "suna",
+    "sun": "rana", "moon": "wata", "school": "makaranta", "book": "littafi"
 }
 
 yoruba = {
-    "hello": "bawo", "come": "ma bo", "go": "lo", "water": "omi", "food": "ounje",
-    "mother": "iya", "father": "baba", "house": "ile", "book": "iwe",
-    "school": "ile iwe", "child": "omo", "sun": "orun", "moon": "osupa",
-    "star": "irawo", "love": "ife", "god": "olorun", "friend": "ore",
-    "name": "oruko", "market": "oja", "good morning": "E kaaro",
-    "good afternoon": "E kaasan", "good evening": "E kurole", "good night": "O daaro"
+    "hello": "bawo", "water": "omi", "food": "ounje", "house": "ile",
+    "mother": "iya", "father": "baba", "friend": "ore", "name": "oruko",
+    "sun": "orun", "moon": "osupa", "school": "ile iwe", "book": "iwe"
 }
 
 zulu = {
-    "hello": "sawubona",
-    "come": "woza",
-    "go": "hamba",
-    "water": "amanzi",
-    "food": "ukudla",
-    "mother": "umama",
-    "father": "ubaba",
-    "house": "indlu",
-    "book": "incwadi",
-    "school": "isikole",
-    "child": "ingane",
-    "sun": "ilanga",
-    "moon": "inyanga",
-    "star": "inkanyezi",
-    "love": "uthando",
-    "god": "uNkulunkulu",
-    "friend": "umngane",
-    "name": "igama",
-    "market": "imakethe",
-    "good morning": "sawubona",
-    "good afternoon": "sawubona",
-    "good evening": "sawubona",
-    "good night": "ulale kahle"
+    "hello": "sawubona", "water": "amanzi", "food": "ukudla", "house": "indlu",
+    "mother": "umama", "father": "ubaba", "friend": "umngane", "name": "igama",
+    "sun": "ilanga", "moon": "inyanga", "school": "isikole", "book": "incwadi"
 }
 
-if choice == "hausa":
-    dictionary = hausa
-elif choice == "yoruba":
-    dictionary = yoruba
-elif choice == "igbo":
-    dictionary = igbo
-elif choice == "igala":
-    dictionary = igala
-elif choice == "zulu":
-    dictionary = zulu
+igbo = {
+    "hello": "ndewo", "water": "mmiri", "food": "nri", "house": "ulo",
+    "mother": "nne", "father": "nna", "friend": "enyi", "name": "aha",
+    "sun": "anwu", "moon": "onwa", "school": "ulo akwukwo", "book": "akwukwo"
+}
 
-your_word = st.text_input("Enter your word").lower()
+igala = {
+    "hello": "aneje", "water": "ama", "food": "uja", "house": "uno",
+    "mother": "nne", "father": "apa", "friend": "oyi", "name": "izina",
+    "sun": "ogene", "moon": "ogida", "school": "uno ekpulu", "book": "ekpulu"
+}
 
-if st.button("search"):
-    if your_word in dictionary:
-        st.title(search_dictionary(your_word, dictionary))
+
+dictionaries = {
+    "Hausa": hausa,
+    "Yoruba": yoruba,
+    "Zulu": zulu,
+    "Igbo": igbo,
+    "Igala": igala
+}
+
+selected_dict = dictionaries[choice]
+
+your_word = st.text_input("Enter English word (e.g., water, hello, house)").lower().strip()
+
+if st.button("Search"):
+    if your_word in selected_dict:
+        st.success(f"The translation in {choice} is: **{selected_dict[your_word]}**")
     else:
-        st.error("Your word is not in the dictionary")
+        st.error("Word not found. Please try words like: hello, water, food, mother, father.")
